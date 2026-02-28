@@ -20,7 +20,7 @@ export default function Marquee({
       {[0, 1].map((copy) => (
         <motion.div
           key={copy}
-          className={`flex shrink-0 items-center gap-4 sm:gap-6 ${pauseOnHover ? 'group-hover:[animation-play-state:paused]' : ''}`}
+          className={`flex shrink-0 items-center gap-4 sm:gap-6 pr-4 sm:pr-6 ${pauseOnHover ? 'group-hover:[animation-play-state:paused]' : ''}`}
           style={{
             animation: `marquee ${speed}s linear infinite ${reverse ? 'reverse' : ''}`,
           }}

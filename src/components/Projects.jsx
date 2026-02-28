@@ -92,7 +92,8 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, ease, delay: i * 0.08 }}
-              className="group p-6 sm:p-8 rounded-2xl border border-white/[0.1] bg-white/[0.03] hover:border-white/20 transition-colors duration-300"
+              whileHover={{ y: -4, borderColor: 'rgba(255,255,255,0.2)' }}
+              className="group p-6 sm:p-8 rounded-2xl border border-white/[0.1] bg-white/[0.03] transition-colors duration-300"
             >
               <div className="grid md:grid-cols-[1fr_auto] gap-6 md:gap-10">
 
@@ -131,24 +132,28 @@ export default function Projects() {
                 {/* Actions */}
                 <div className="flex md:flex-col items-start md:items-end gap-3 pt-1">
                   {project.demo && (
-                    <a
+                    <motion.a
                       href={project.demo}
                       target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-xs font-medium px-3 h-7 rounded-full border border-white/[0.12] hover:border-white/25 transition-all duration-200 whitespace-nowrap"
+                      whileHover={{ scale: 1.08, borderColor: 'rgba(255,255,255,0.3)' }}
+                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-xs font-medium px-3 h-7 rounded-full border border-white/[0.12] transition-all duration-200 whitespace-nowrap"
                     >
                       <ExternalLink size={11} />
                       Live Demo
-                    </a>
+                    </motion.a>
                   )}
                   {project.repo && (
-                    <a
+                    <motion.a
                       href={project.repo}
                       target="_blank" rel="noopener noreferrer"
+                      whileHover={{ scale: 1.08, x: 2 }}
+                      whileTap={{ scale: 0.95 }}
                       className="inline-flex items-center gap-1.5 text-white/45 hover:text-white/70 text-xs font-medium transition-colors duration-200 whitespace-nowrap"
                     >
                       <Github size={12} />
                       Source
-                    </a>
+                    </motion.a>
                   )}
                 </div>
 

@@ -38,7 +38,7 @@ export default function Hero() {
                 initial={{ y: '100%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.75, ease, delay: 0.25 }}
-                className="text-[clamp(2.6rem,8vw,5.5rem)] font-bold text-white leading-[1] tracking-[-0.03em]"
+                className="text-[clamp(2.6rem,8vw,5.5rem)] font-bold leading-[1] tracking-[-0.03em] text-gradient-animate"
               >
                 Usaid Ahmad
               </motion.h1>
@@ -74,18 +74,22 @@ export default function Hero() {
               transition={{ duration: 0.5, ease, delay: 0.7 }}
               className="flex flex-wrap items-center justify-center gap-4"
             >
-              <a
+              <motion.a
                 href="#projects"
+                whileHover={{ scale: 1.06, boxShadow: '0 0 20px rgba(255,255,255,0.1)' }}
+                whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center bg-white text-black text-sm font-semibold h-10 px-7 rounded-full hover:bg-white/90 transition-colors duration-200"
               >
                 View Work
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="#contact"
+                whileHover={{ scale: 1.06, borderColor: 'rgba(255,255,255,0.4)' }}
+                whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center text-white/60 hover:text-white text-sm font-medium h-10 px-5 rounded-full border border-white/[0.15] hover:border-white/30 transition-all duration-200"
               >
                 Get in touch
-              </a>
+              </motion.a>
             </motion.div>
 
             {/* Social icons */}
@@ -96,16 +100,18 @@ export default function Hero() {
               className="flex items-center gap-5 mt-10"
             >
               {socials.map(({ icon: Icon, href, label }) => (
-                <a
+                <motion.a
                   key={label}
                   href={href}
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  whileHover={{ scale: 1.25, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
                   className="text-white/40 hover:text-white/70 transition-colors duration-200"
                   aria-label={label}
                 >
                   <Icon size={18} />
-                </a>
+                </motion.a>
               ))}
             </motion.div>
 

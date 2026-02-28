@@ -9,9 +9,13 @@ const allSkills = [...row1, ...row2]
 
 function Pill({ label }) {
   return (
-    <span className="inline-flex items-center gap-2 text-white/70 text-xs sm:text-sm font-medium border border-white/[0.12] bg-white/[0.04] px-3 sm:px-4 py-2 rounded-full whitespace-nowrap hover:border-white/[0.25] hover:text-white/90 transition-all duration-200 cursor-default select-none">
+    <motion.span
+      whileHover={{ scale: 1.1, borderColor: 'rgba(255,255,255,0.3)' }}
+      whileTap={{ scale: 0.95 }}
+      className="inline-flex items-center gap-2 text-white/70 text-xs sm:text-sm font-medium border border-white/[0.12] bg-white/[0.04] px-3 sm:px-4 py-2 rounded-full whitespace-nowrap hover:text-white/90 transition-all duration-200 cursor-default select-none"
+    >
       {label}
-    </span>
+    </motion.span>
   )
 }
 

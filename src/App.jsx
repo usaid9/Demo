@@ -3,11 +3,13 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import AboutSection from './components/AboutSection'
 import Skills from './components/Skills'
+import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Starfield from './components/Starfield'
 import Scene3D from './components/Scene3D'
+import AnimatedDivider from './components/AnimatedDivider'
 
 export default function App() {
   return (
@@ -25,8 +27,13 @@ export default function App() {
       <main className="relative" style={{ zIndex: 10 }}>
         <Hero />
         <AboutSection />
+        <AnimatedDivider />
         <Skills />
+        <AnimatedDivider />
+        <Experience />
+        <AnimatedDivider />
         <Projects />
+        <AnimatedDivider />
         <Contact />
       </main>
       <Footer />
