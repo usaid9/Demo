@@ -38,7 +38,8 @@ export default function About() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-white/40 text-[11px] font-mono uppercase tracking-[0.3em] mb-3"        >
+          className="text-white/40 text-[11px] font-mono uppercase tracking-[0.3em] mb-3"
+        >
           01 — About
         </motion.p>
 
