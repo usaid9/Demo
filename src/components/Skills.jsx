@@ -1,106 +1,75 @@
-const skillCategories = [
-  {
-    title: 'Frontend',
-    color: 'from-violet-500 to-purple-600',
-    skills: [
-      { name: 'React.js', level: 92 },
-      { name: 'JavaScript (ES6+)', level: 90 },
-      { name: 'Tailwind CSS', level: 88 },
-      { name: 'HTML5 / CSS3', level: 95 },
-    ],
-  },
-  {
-    title: 'Backend',
-    color: 'from-blue-500 to-cyan-600',
-    skills: [
-      { name: 'Node.js', level: 85 },
-      { name: 'Express.js', level: 83 },
-      { name: 'REST APIs', level: 88 },
-      { name: 'GraphQL', level: 70 },
-    ],
-  },
-  {
-    title: 'Database & DevOps',
-    color: 'from-emerald-500 to-teal-600',
-    skills: [
-      { name: 'MongoDB', level: 82 },
-      { name: 'PostgreSQL', level: 74 },
-      { name: 'Docker', level: 68 },
-      { name: 'Git / GitHub', level: 90 },
-    ],
-  },
-]
+import { motion } from 'framer-motion'
+import Marquee from './Marquee'
 
-const techBadges = [
-  'React', 'Node.js', 'MongoDB', 'Express', 'Tailwind', 'JavaScript',
-  'TypeScript', 'Docker', 'Git', 'PostgreSQL', 'GraphQL', 'REST APIs',
-]
+const ease = [0.16, 1, 0.3, 1]
+
+const row1 = ['React.js', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML / CSS', 'Vite', 'Node.js']
+const row2 = ['Express.js', 'MongoDB', 'REST APIs', 'Git', 'GitHub', 'Adobe Illustrator', 'Figma', 'Blender']
+const allSkills = [...row1, ...row2]
+
+function Pill({ label }) {
+  return (
+    <span className="inline-flex items-center gap-2 text-white/60 text-xs sm:text-sm font-medium border border-white/[0.08] bg-white/[0.03] px-3 sm:px-4 py-2 rounded-full whitespace-nowrap hover:border-white/[0.16] hover:text-white/80 transition-all duration-200 cursor-default select-none">
+      {label}
+    </span>
+  )
+}
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-slate-900">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-violet-400 font-semibold text-sm uppercase tracking-widest mb-3">
-            My Skills
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Tech{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-400">
-              Stack
-            </span>
-          </h2>
-          <p className="text-slate-400 mt-4 max-w-xl mx-auto">
-            Technologies and tools I use to bring ideas to life
-          </p>
-        </div>
+    <section id="skills" className="py-24 sm:py-32 border-t border-white/[0.06]">
 
-        {/* Skill categories */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {skillCategories.map((cat) => (
-            <div
-              key={cat.title}
-              className="bg-slate-800/60 border border-slate-700/50 rounded-2xl p-8 hover:border-violet-500/40 transition-colors"
-            >
-              <h3 className={`text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r ${cat.color} mb-6`}>
-                {cat.title}
-              </h3>
-              <div className="space-y-5">
-                {cat.skills.map((skill) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between text-sm mb-2">
-                      <span className="text-slate-300 font-medium">{skill.name}</span>
-                      <span className="text-slate-500">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                      <div
-                        className={`h-full bg-gradient-to-r ${cat.color} rounded-full transition-all duration-700`}
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Tech badges */}
-        <div className="text-center">
-          <p className="text-slate-500 text-sm uppercase tracking-widest mb-6">Technologies I work with</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {techBadges.map((tech) => (
-              <span
-                key={tech}
-                className="bg-slate-800 border border-slate-700 text-slate-300 text-sm font-medium px-4 py-2 rounded-full hover:border-violet-500 hover:text-violet-300 transition-colors cursor-default"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
+      {/* Title */}
+      <div className="w-full max-w-[1100px] mx-auto px-5 sm:px-8 lg:px-12 mb-12">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-white/20 text-[11px] font-mono uppercase tracking-[0.3em] mb-3"
+        >
+          02 — Skills
+        </motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease }}
+          className="text-3xl sm:text-4xl font-bold text-white"
+        >
+          Technology Stack
+        </motion.h2>
       </div>
+
+      {/* Mobile: wrapped pills */}
+      <div className="w-full max-w-[1100px] mx-auto px-5 sm:px-8 lg:px-12 md:hidden">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex flex-wrap gap-2"
+        >
+          {allSkills.map((s) => <Pill key={s} label={s} />)}
+        </motion.div>
+      </div>
+
+      {/* Desktop: marquee rows (full-width, edge-to-edge) */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="hidden md:flex flex-col gap-4"
+      >
+        <Marquee speed={40}>
+          {row1.map((s) => <Pill key={s} label={s} />)}
+        </Marquee>
+        <Marquee speed={46} reverse>
+          {row2.map((s) => <Pill key={s} label={s} />)}
+        </Marquee>
+      </motion.div>
+
     </section>
   )
 }

@@ -6,12 +6,23 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Starfield from './components/Starfield'
+import Scene3D from './components/Scene3D'
 
 export default function App() {
   return (
-    <div className="bg-slate-900 min-h-screen">
+    <div className="min-h-screen" style={{ background: '#0a0a0a' }}>
+      {/* z-0: Background effects */}
+      <Starfield />
+      <div className="hidden lg:block">
+        <Scene3D />
+      </div>
+
+      {/* z-50: Navigation chrome */}
       <Navbar />
-      <main>
+
+      {/* z-10: Page content */}
+      <main className="relative" style={{ zIndex: 10 }}>
         <Hero />
         <AboutSection />
         <Skills />

@@ -1,97 +1,131 @@
-import { Download, MapPin, Mail, Coffee } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 
-const stats = [
-  { value: '3+', label: 'Years Experience' },
-  { value: '40+', label: 'Projects Completed' },
-  { value: '20+', label: 'Happy Clients' },
-  { value: '99%', label: 'Client Satisfaction' },
+const ease = [0.16, 1, 0.3, 1]
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease, delay: i * 0.1 },
+  }),
+}
+
+const services = [
+  {
+    title: 'Web Development',
+    desc: 'Building responsive, performant web apps with React, Next.js, and the MERN stack.',
+  },
+  {
+    title: 'UI / UX Design',
+    desc: 'Crafting clean interfaces in Figma and translating designs to pixel-perfect code.',
+  },
+  {
+    title: '3D & Graphics',
+    desc: 'Creating 3D models in Blender and vector artwork in Adobe Illustrator.',
+  },
 ]
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-slate-800">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-violet-400 font-semibold text-sm uppercase tracking-widest mb-3">
-            About Me
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Who I <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-400">Am</span>
-          </h2>
+    <section id="about" className="py-24 sm:py-32 border-t border-white/[0.06]">
+      <div className="w-full max-w-[1100px] mx-auto px-5 sm:px-8 lg:px-12">
+
+        {/* Section label */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-white/20 text-[11px] font-mono uppercase tracking-[0.3em] mb-3"
+        >
+          01 — About
+        </motion.p>
+
+        {/* Avatar + intro grid */}
+        <div className="grid lg:grid-cols-[240px_1fr] gap-8 lg:gap-16 mt-2 mb-16">
+
+          {/* Avatar */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease }}
+            className="flex justify-center lg:justify-start"
+          >
+            <div className="w-[200px] sm:w-[240px] lg:w-full aspect-square rounded-2xl overflow-hidden border border-white/[0.06]">
+              <img
+                src="https://avatars.githubusercontent.com/u/225879781?v=4"
+                alt="Usaid Ahmad"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
+
+          {/* Text */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="flex flex-col justify-center"
+          >
+            <motion.div variants={fadeUp}>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-1">Usaid Ahmad</h2>
+              <p className="text-white/30 text-sm mb-6">A-levels student · Faisalabad, Pakistan</p>
+            </motion.div>
+
+            <motion.p variants={fadeUp} custom={1}
+              className="text-white/50 leading-[1.8] text-[15px] mb-4"
+            >
+              I build modern web applications using the MERN stack. I care about
+              performance, clean architecture, and interfaces that feel good to use.
+            </motion.p>
+            <motion.p variants={fadeUp} custom={2}
+              className="text-white/50 leading-[1.8] text-[15px] mb-8"
+            >
+              Outside of code I work in Adobe Illustrator and Blender — I enjoy
+              the intersection of technical and visual craft.
+            </motion.p>
+
+            <motion.div variants={fadeUp} custom={3} className="flex flex-wrap gap-5">
+              <a
+                href="https://github.com/usaid9"
+                target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-white/50 hover:text-white text-sm transition-colors duration-200"
+              >
+                GitHub <ArrowUpRight size={13} className="opacity-50" />
+              </a>
+              <a
+                href="mailto:usaidmoiza@gmail.com"
+                className="text-white/30 hover:text-white/60 text-sm transition-colors duration-200"
+              >
+                usaidmoiza@gmail.com
+              </a>
+            </motion.div>
+          </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-14 items-center">
-          {/* Image / visual side */}
-          <div className="relative">
-            <div className="relative mx-auto w-72 h-72 md:w-80 md:h-80">
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-600 to-blue-600 rounded-3xl rotate-6 opacity-40" />
-              <div className="relative w-full h-full bg-gradient-to-br from-violet-500/30 to-blue-500/30 rounded-3xl border border-slate-700 flex items-center justify-center text-white text-8xl font-bold">
-                AJ
-              </div>
-            </div>
-
-            {/* Floating badges */}
-            <div className="absolute -bottom-4 -right-4 md:right-8 bg-slate-900 border border-slate-700 rounded-2xl p-4 shadow-xl">
-              <div className="flex items-center gap-2 text-white font-semibold">
-                <Coffee size={18} className="text-violet-400" />
-                <span>MERN Stack Dev</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Text side */}
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-4">
-              A passionate developer building for the modern web
-            </h3>
-            <p className="text-slate-400 leading-relaxed mb-4">
-              I&apos;m a full-stack developer with 3+ years of experience crafting end-to-end web
-              applications. I specialize in the MERN stack (MongoDB, Express.js, React, Node.js),
-              with a deep focus on performance, scalability, and intuitive UI.
-            </p>
-            <p className="text-slate-400 leading-relaxed mb-8">
-              When I&apos;m not coding, you can find me exploring new technologies, contributing to
-              open source projects, or hiking in the mountains. I believe that great software is
-              built by teams that care about both the product and the people who use it.
-            </p>
-
-            <div className="flex flex-col gap-3 mb-8">
-              <div className="flex items-center gap-3 text-slate-300">
-                <MapPin size={16} className="text-violet-400 shrink-0" />
-                <span>San Francisco, CA</span>
-              </div>
-              <div className="flex items-center gap-3 text-slate-300">
-                <Mail size={16} className="text-violet-400 shrink-0" />
-                <span>alex@example.com</span>
-              </div>
-            </div>
-
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 text-white font-semibold px-6 py-3 rounded-full transition-colors"
+        {/* Service cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {services.map((s, i) => (
+            <motion.div
+              key={s.title}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, ease, delay: i * 0.07 }}
+              className="p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-white/10 transition-colors duration-300"
             >
-              <Download size={16} />
-              Download Resume
-            </a>
-          </div>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-6 text-center hover:border-violet-500/50 transition-colors"
-            >
-              <p className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-400 mb-2">
-                {stat.value}
-              </p>
-              <p className="text-slate-400 text-sm">{stat.label}</p>
-            </div>
+              <p className="text-white text-sm font-semibold mb-2">{s.title}</p>
+              <p className="text-white/35 text-sm leading-relaxed">{s.desc}</p>
+            </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   )
 }
+
+
