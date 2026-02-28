@@ -1,24 +1,24 @@
-import {
-  createBrowserRouter, RouterProvider
-} from 'react-router-dom'
 import './App.css'
-import Home from './components/Home'
-import About from './components/About'
-const router = createBrowserRouter([
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import AboutSection from './components/AboutSection'
+import Skills from './components/Skills'
+import Projects from './components/Projects'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
 
-  {
-    path: "/",
-    element: <Home />
-  },
-  {
-    path: "/about",
-    element: <About />
-  }
-])
 export default function App() {
   return (
-    <div>
-      <RouterProvider router={router} />
+    <div className="bg-slate-900 min-h-screen">
+      <Navbar />
+      <main>
+        <Hero />
+        <AboutSection />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   )
 }

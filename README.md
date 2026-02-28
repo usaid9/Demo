@@ -1,12 +1,53 @@
-# React + Vite
+# MERN Stack Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive single-page portfolio built with **React + Vite + Tailwind CSS**.
 
-Currently, two official plugins are available:
+![Portfolio Preview](https://github.com/user-attachments/assets/c22598b2-0f92-4883-9f86-31924089c1b4)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Sections
 
-## Expanding the ESLint configuration
+- **Hero** – Name, title, CTA buttons, social links
+- **About** – Bio, location, resume download, stats
+- **Skills** – Categorised skill bars (Frontend / Backend / DB & DevOps) + tech badge cloud
+- **Projects** – 6 project cards with tags, live demo & source links
+- **Contact** – Contact form (submit-ready), contact info, social links
+- **Footer** – Nav links, social icons, copyright
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| UI Framework | React 19 |
+| Build Tool | Vite 7 |
+| Styling | Tailwind CSS v4 |
+| Icons | Lucide React |
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Customisation
+
+All placeholder data lives in the component files under `src/components/`:
+
+| File | What to edit |
+|------|-------------|
+| `Hero.jsx` | Name, title, tagline, social links |
+| `AboutSection.jsx` | Bio, location, email, stats |
+| `Skills.jsx` | Skill categories, levels, tech badges |
+| `Projects.jsx` | Project cards (title, description, tags, links) |
+| `Contact.jsx` | Contact info, form action (wire up to backend API) |
+| `Navbar.jsx` / `Footer.jsx` | Brand name, nav links |
+
