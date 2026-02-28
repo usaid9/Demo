@@ -41,7 +41,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-white/60 hover:text-white transition-colors duration-200 text-sm"
+                className="nav-link-hover text-white/60 hover:text-white transition-colors duration-200 text-sm"
               >
                 {link.label}
               </a>
@@ -49,12 +49,14 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
+        <motion.a
           href="#contact"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
           className="hidden md:inline-flex items-center bg-white text-black text-xs font-semibold h-8 px-4 rounded-full hover:bg-white/90 transition-colors duration-200"
         >
           Hire me
-        </a>
+        </motion.a>
 
         <button
           className="md:hidden text-white/50"

@@ -115,7 +115,8 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, ease, delay: i * 0.07 }}
-              className="p-6 rounded-2xl border border-white/[0.1] bg-white/[0.03] hover:border-white/20 transition-colors duration-300"
+              whileHover={{ y: -4, borderColor: 'rgba(255,255,255,0.2)' }}
+              className="p-6 rounded-2xl border border-white/[0.1] bg-white/[0.03] transition-colors duration-300 cursor-default"
             >
               <p className="text-white text-sm font-semibold mb-2">{s.title}</p>
               <p className="text-white/55 text-sm leading-relaxed">{s.desc}</p>

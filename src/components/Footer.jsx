@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
@@ -15,16 +16,18 @@ export default function Footer() {
               { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
               { icon: Mail, href: 'mailto:usaidmoiza@gmail.com', label: 'Email' },
             ].map(({ icon: Icon, href, label }) => (
-              <a
+              <motion.a
                 key={label}
                 href={href}
                 target={href.startsWith('http') ? '_blank' : undefined}
                 rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                whileHover={{ scale: 1.25, y: -2 }}
+                whileTap={{ scale: 0.9 }}
                 className="text-white/40 hover:text-white/70 transition-colors duration-200"
                 aria-label={label}
               >
                 <Icon size={16} />
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
