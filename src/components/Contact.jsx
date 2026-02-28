@@ -17,7 +17,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 sm:py-32 border-t border-white/[0.06]">
+    <section id="contact" className="py-24 sm:py-32 border-t border-white/[0.1]">
       <div className="w-full max-w-[1100px] mx-auto px-5 sm:px-8 lg:px-12">
 
         {/* CTA heading */}
@@ -27,7 +27,7 @@ export default function Contact() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-white/20 text-[11px] font-mono uppercase tracking-[0.3em] mb-3"
+            className="text-white/40 text-[11px] font-mono uppercase tracking-[0.3em] mb-3"
           >
             04 — Contact
           </motion.p>
@@ -49,7 +49,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease, delay: 0.15 }}
-            className="text-white/35 text-[15px] max-w-sm mx-auto mb-8"
+            className="text-white/55 text-[15px] max-w-sm mx-auto mb-8"
           >
             Have a project, a question, or just want to say hello?
           </motion.p>
@@ -64,12 +64,12 @@ export default function Contact() {
           >
             <a
               href="mailto:usaidmoiza@gmail.com"
-              className="inline-flex items-center gap-2 text-white/45 hover:text-white text-sm transition-colors duration-200"
+              className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm transition-colors duration-200"
             >
               <Mail size={14} />
               usaidmoiza@gmail.com
             </a>
-            <span className="hidden sm:block h-3.5 w-px bg-white/10" />
+            <span className="hidden sm:block h-3.5 w-px bg-white/15" />
             <div className="flex items-center gap-4">
               {[
                 { icon: Github, href: 'https://github.com/usaid9', label: 'GitHub' },
@@ -79,7 +79,7 @@ export default function Contact() {
                   key={label}
                   href={href}
                   target="_blank" rel="noopener noreferrer"
-                  className="text-white/25 hover:text-white/60 transition-colors duration-200"
+                  className="text-white/45 hover:text-white/70 transition-colors duration-200"
                   aria-label={label}
                 >
                   <Icon size={16} />
@@ -95,7 +95,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease, delay: 0.15 }}
-          className="max-w-lg mx-auto p-7 sm:p-9 rounded-2xl border border-white/[0.06] bg-white/[0.02]"
+          className="max-w-lg mx-auto p-7 sm:p-9 rounded-2xl border border-white/[0.1] bg-white/[0.03]"
         >
           <AnimatePresence mode="wait">
             {sent ? (
@@ -110,7 +110,7 @@ export default function Contact() {
                   <Send size={16} className="text-emerald-400/70" />
                 </div>
                 <p className="text-white text-sm font-semibold mb-1.5">Message sent!</p>
-                <p className="text-white/30 text-sm">I’ll get back to you shortly.</p>
+                <p className="text-white/50 text-sm">I’ll get back to you shortly.</p>
               </motion.div>
             ) : (
               <motion.form
@@ -126,26 +126,26 @@ export default function Contact() {
                   { id: 'email', type: 'email', label: 'Email', placeholder: 'your@email.com' },
                 ].map((f) => (
                   <div key={f.id}>
-                    <label className="block text-white/25 text-[10px] mb-2 font-mono uppercase tracking-widest" htmlFor={f.id}>
+                    <label className="block text-white/40 text-[10px] mb-2 font-mono uppercase tracking-widest" htmlFor={f.id}>
                       {f.label}
                     </label>
                     <input
                       id={f.id} name={f.id} type={f.type} required
                       value={form[f.id]} onChange={handleChange}
                       placeholder={f.placeholder}
-                      className="w-full bg-transparent border-b border-white/[0.08] focus:border-white/20 text-white placeholder-white/15 py-2 text-sm outline-none transition-colors duration-200"
+                      className="w-full bg-transparent border-b border-white/[0.12] focus:border-white/30 text-white placeholder-white/25 py-2 text-sm outline-none transition-colors duration-200"
                     />
                   </div>
                 ))}
                 <div>
-                  <label className="block text-white/25 text-[10px] mb-2 font-mono uppercase tracking-widest" htmlFor="message">
+                  <label className="block text-white/40 text-[10px] mb-2 font-mono uppercase tracking-widest" htmlFor="message">
                     Message
                   </label>
                   <textarea
                     id="message" name="message" rows={4} required
                     value={form.message} onChange={handleChange}
                     placeholder="What’s on your mind?"
-                    className="w-full bg-transparent border-b border-white/[0.08] focus:border-white/20 text-white placeholder-white/15 py-2 text-sm outline-none transition-colors duration-200 resize-none"
+                    className="w-full bg-transparent border-b border-white/[0.12] focus:border-white/30 text-white placeholder-white/25 py-2 text-sm outline-none transition-colors duration-200 resize-none"
                   />
                 </div>
                 <button

@@ -44,7 +44,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 sm:py-32 border-t border-white/[0.06]">
+    <section id="projects" className="py-24 sm:py-32 border-t border-white/[0.1]">
       <div className="w-full max-w-[1100px] mx-auto px-5 sm:px-8 lg:px-12">
 
         {/* Header */}
@@ -55,7 +55,7 @@ export default function Projects() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-white/20 text-[11px] font-mono uppercase tracking-[0.3em] mb-3"
+              className="text-white/40 text-[11px] font-mono uppercase tracking-[0.3em] mb-3"
             >
               03 — Projects
             </motion.p>
@@ -77,7 +77,7 @@ export default function Projects() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="hidden sm:inline-flex items-center gap-1.5 text-white/30 hover:text-white text-sm transition-colors duration-200"
+            className="hidden sm:inline-flex items-center gap-1.5 text-white/50 hover:text-white text-sm transition-colors duration-200"
           >
             All projects <ArrowUpRight size={13} />
           </motion.a>
@@ -92,7 +92,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, ease, delay: i * 0.08 }}
-              className="group p-6 sm:p-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-white/10 transition-colors duration-300"
+              className="group p-6 sm:p-8 rounded-2xl border border-white/[0.1] bg-white/[0.03] hover:border-white/20 transition-colors duration-300"
             >
               <div className="grid md:grid-cols-[1fr_auto] gap-6 md:gap-10">
 
@@ -101,14 +101,14 @@ export default function Projects() {
                   <h3 className="text-white font-semibold text-base sm:text-lg mb-3">
                     {project.title}
                   </h3>
-                  <p className="text-white/40 text-sm leading-[1.7] mb-5 max-w-lg">
+                  <p className="text-white/60 text-sm leading-[1.7] mb-5 max-w-lg">
                     {project.description}
                   </p>
 
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
                     {project.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-white/30 text-sm">
+                      <li key={f} className="flex items-start gap-2.5 text-white/50 text-sm">
                         <span className="text-emerald-400/50 mt-px text-xs">◆</span>
                         {f}
                       </li>
@@ -120,7 +120,7 @@ export default function Projects() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-white/25 text-[11px] font-mono bg-white/[0.04] border border-white/[0.06] px-2.5 py-1 rounded-md"
+                        className="text-white/45 text-[11px] font-mono bg-white/[0.06] border border-white/[0.1] px-2.5 py-1 rounded-md"
                       >
                         {tag}
                       </span>
@@ -134,7 +134,7 @@ export default function Projects() {
                     <a
                       href={project.demo}
                       target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-white/40 hover:text-white text-xs font-medium px-3 h-7 rounded-full border border-white/[0.08] hover:border-white/20 transition-all duration-200 whitespace-nowrap"
+                      className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-xs font-medium px-3 h-7 rounded-full border border-white/[0.12] hover:border-white/25 transition-all duration-200 whitespace-nowrap"
                     >
                       <ExternalLink size={11} />
                       Live Demo
@@ -144,7 +144,7 @@ export default function Projects() {
                     <a
                       href={project.repo}
                       target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-white/25 hover:text-white/60 text-xs font-medium transition-colors duration-200 whitespace-nowrap"
+                      className="inline-flex items-center gap-1.5 text-white/45 hover:text-white/70 text-xs font-medium transition-colors duration-200 whitespace-nowrap"
                     >
                       <Github size={12} />
                       Source

@@ -9,7 +9,7 @@ const allSkills = [...row1, ...row2]
 
 function Pill({ label }) {
   return (
-    <span className="inline-flex items-center gap-2 text-white/60 text-xs sm:text-sm font-medium border border-white/[0.08] bg-white/[0.03] px-3 sm:px-4 py-2 rounded-full whitespace-nowrap hover:border-white/[0.16] hover:text-white/80 transition-all duration-200 cursor-default select-none">
+    <span className="inline-flex items-center gap-2 text-white/70 text-xs sm:text-sm font-medium border border-white/[0.12] bg-white/[0.04] px-3 sm:px-4 py-2 rounded-full whitespace-nowrap hover:border-white/[0.25] hover:text-white/90 transition-all duration-200 cursor-default select-none">
       {label}
     </span>
   )
@@ -17,7 +17,7 @@ function Pill({ label }) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 sm:py-32 border-t border-white/[0.06]">
+    <section id="skills" className="py-24 sm:py-32 border-t border-white/[0.1]">
 
       {/* Title */}
       <div className="w-full max-w-[1100px] mx-auto px-5 sm:px-8 lg:px-12 mb-12">
@@ -26,7 +26,7 @@ export default function Skills() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-white/20 text-[11px] font-mono uppercase tracking-[0.3em] mb-3"
+          className="text-white/40 text-[11px] font-mono uppercase tracking-[0.3em] mb-3"
         >
           02 — Skills
         </motion.p>

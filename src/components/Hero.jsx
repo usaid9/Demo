@@ -21,13 +21,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease, delay: 0.15 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] mb-8"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.12] bg-white/[0.04] mb-8"
             >
               <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
               </span>
-              <span className="text-white/50 text-[11px] font-medium tracking-widest uppercase font-mono">
+              <span className="text-white/60 text-[11px] font-medium tracking-widest uppercase font-mono">
                 Available for work
               </span>
             </motion.div>
@@ -50,7 +50,7 @@ export default function Hero() {
                 initial={{ y: '100%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.7, ease, delay: 0.4 }}
-                className="text-lg sm:text-xl md:text-2xl text-white/30 font-light tracking-wide"
+                className="text-lg sm:text-xl md:text-2xl text-white/50 font-light tracking-wide"
               >
                 Full-Stack Developer
               </motion.p>
@@ -61,7 +61,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease, delay: 0.55 }}
-              className="text-white/40 text-base sm:text-lg leading-[1.7] max-w-md mb-10"
+              className="text-white/60 text-base sm:text-lg leading-[1.7] max-w-md mb-10"
             >
               Building modern web applications with the MERN stack.
               Also into graphic design &amp; 3D.
@@ -82,7 +82,7 @@ export default function Hero() {
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center text-white/50 hover:text-white text-sm font-medium h-10 px-5 rounded-full border border-white/[0.1] hover:border-white/20 transition-all duration-200"
+                className="inline-flex items-center text-white/60 hover:text-white text-sm font-medium h-10 px-5 rounded-full border border-white/[0.15] hover:border-white/30 transition-all duration-200"
               >
                 Get in touch
               </a>
@@ -101,7 +101,7 @@ export default function Hero() {
                   href={href}
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="text-white/20 hover:text-white/60 transition-colors duration-200"
+                  className="text-white/40 hover:text-white/70 transition-colors duration-200"
                   aria-label={label}
                 >
                   <Icon size={18} />
@@ -124,7 +124,7 @@ export default function Hero() {
           href="#about"
           animate={{ y: [0, 5, 0] }}
           transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
-          className="text-white/15 hover:text-white/35 transition-colors duration-200"
+          className="text-white/25 hover:text-white/50 transition-colors duration-200"
         >
           <ArrowDown size={18} />
         </motion.a>
