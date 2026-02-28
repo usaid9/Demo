@@ -29,7 +29,7 @@ const services = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 sm:py-32 border-t border-white/[0.06]">
+    <section id="about" className="py-24 sm:py-32 border-t border-white/[0.1]">
       <div className="w-full max-w-[1100px] mx-auto px-5 sm:px-8 lg:px-12">
 
         {/* Section label */}
@@ -38,7 +38,7 @@ export default function About() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-white/20 text-[11px] font-mono uppercase tracking-[0.3em] mb-3"
+          className="text-white/40 text-[11px] font-mono uppercase tracking-[0.3em] mb-3"
         >
           01 — About
         </motion.p>
@@ -54,7 +54,7 @@ export default function About() {
             transition={{ duration: 0.5, ease }}
             className="flex justify-center lg:justify-start"
           >
-            <div className="w-[200px] sm:w-[240px] lg:w-full aspect-square rounded-2xl overflow-hidden border border-white/[0.06]">
+            <div className="w-[200px] sm:w-[240px] lg:w-full aspect-square rounded-2xl overflow-hidden border border-white/[0.1]">
               <img
                 src="https://avatars.githubusercontent.com/u/225879781?v=4"
                 alt="Usaid Ahmad"
@@ -72,17 +72,17 @@ export default function About() {
           >
             <motion.div variants={fadeUp}>
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-1">Usaid Ahmad</h2>
-              <p className="text-white/30 text-sm mb-6">A-levels student · Faisalabad, Pakistan</p>
+              <p className="text-white/50 text-sm mb-6">A-levels student · Faisalabad, Pakistan</p>
             </motion.div>
 
             <motion.p variants={fadeUp} custom={1}
-              className="text-white/50 leading-[1.8] text-[15px] mb-4"
+              className="text-white/70 leading-[1.8] text-[15px] mb-4"
             >
               I build modern web applications using the MERN stack. I care about
               performance, clean architecture, and interfaces that feel good to use.
             </motion.p>
             <motion.p variants={fadeUp} custom={2}
-              className="text-white/50 leading-[1.8] text-[15px] mb-8"
+              className="text-white/70 leading-[1.8] text-[15px] mb-8"
             >
               Outside of code I work in Adobe Illustrator and Blender — I enjoy
               the intersection of technical and visual craft.
@@ -92,13 +92,13 @@ export default function About() {
               <a
                 href="https://github.com/usaid9"
                 target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-white/50 hover:text-white text-sm transition-colors duration-200"
+                className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-sm transition-colors duration-200"
               >
                 GitHub <ArrowUpRight size={13} className="opacity-50" />
               </a>
               <a
                 href="mailto:usaidmoiza@gmail.com"
-                className="text-white/30 hover:text-white/60 text-sm transition-colors duration-200"
+                className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200"
               >
                 usaidmoiza@gmail.com
               </a>
@@ -115,10 +115,10 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, ease, delay: i * 0.07 }}
-              className="p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-white/10 transition-colors duration-300"
+              className="p-6 rounded-2xl border border-white/[0.1] bg-white/[0.03] hover:border-white/20 transition-colors duration-300"
             >
               <p className="text-white text-sm font-semibold mb-2">{s.title}</p>
-              <p className="text-white/35 text-sm leading-relaxed">{s.desc}</p>
+              <p className="text-white/55 text-sm leading-relaxed">{s.desc}</p>
             </motion.div>
           ))}
         </div>
