@@ -18,6 +18,8 @@ function AnimatedCounter({ value, suffix }) {
   const [inView, setInView] = useState(false)
 
   useEffect(() => {
+    const node = ref.current
+    if (!node) return
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !inView) {
@@ -26,7 +28,7 @@ function AnimatedCounter({ value, suffix }) {
       },
       { threshold: 0.5 }
     )
-    if (ref.current) observer.observe(ref.current)
+    observer.observe(node)
     return () => observer.disconnect()
   }, [inView])
 
@@ -44,7 +46,7 @@ function AnimatedCounter({ value, suffix }) {
   }, [inView, count, value, rounded])
 
   return (
-    <span ref={ref} style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+    <span ref={ref}>
       {display}{suffix}
     </span>
   )
@@ -69,7 +71,6 @@ export default function Experience() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease }}
           className="text-3xl sm:text-4xl font-bold text-white mb-14"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
           By the Numbers
         </motion.h2>

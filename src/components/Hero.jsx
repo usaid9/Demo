@@ -39,7 +39,6 @@ export default function Hero() {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.75, ease, delay: 0.25 }}
                 className="text-[clamp(2.6rem,8vw,5.5rem)] font-bold leading-[1] tracking-[-0.03em] text-gradient-animate"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
                 Usaid Ahmad
               </motion.h1>

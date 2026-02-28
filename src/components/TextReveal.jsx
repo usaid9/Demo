@@ -16,7 +16,7 @@ export default function TextReveal({ text, className = '' }) {
       className={className}
     >
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden mr-[0.3em]">
+        <span key={`${i}-${word}`} className="inline-block overflow-hidden mr-[0.3em]">
           <motion.span
             className="inline-block"
             variants={{
