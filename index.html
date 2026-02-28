@@ -2,10 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/logo.png" id="favicon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Usaid Ahmad – MERN Stack Developer</title>
-    <meta name="description" content="Usaid Ahmad — MERN stack developer, graphic designer, and 3D modeler from Pakistan" />
+    <meta
+      name="description"
+      content="Usaid Ahmad — MERN stack developer, graphic designer, and 3D modeler from Pakistan"
+    />
+    <meta
+      name="description"
+      content="React & Node.js Web Developer Portfolio"
+    />
+    <meta
+      name="keywords"
+      content="React, Web Developer, JavaScript, Portfolio"
+    />
+    <script>
+      // Detect and apply dark mode logo
+      function updateFavicon() {
+        const favicon = document.getElementById("favicon");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+
+        if (prefersDark) {
+          favicon.href = "/logodark.png";
+        } else {
+          favicon.href = "/logo.png";
+        }
+      }
+
+      // Update on load
+      updateFavicon();
+
+      // Listen for theme changes
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", updateFavicon);
+    </script>
   </head>
   <body>
     <div id="root"></div>

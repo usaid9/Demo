@@ -13,22 +13,24 @@ export default function Marquee({
   className = '',
   pauseOnHover = true,
 }) {
+  // Duplicate children 4 times for a seamless infinite effect
+  const copies = [0, 1, 2, 3];
   return (
     <div
       className={`group w-full flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] sm:[mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] ${className}`}
     >
-      {[0, 1].map((copy) => (
+      {copies.map((copy) => (
         <motion.div
           key={copy}
           className={`flex shrink-0 items-center gap-4 sm:gap-6 pr-4 sm:pr-6 ${pauseOnHover ? 'group-hover:[animation-play-state:paused]' : ''}`}
           style={{
             animation: `marquee ${speed}s linear infinite ${reverse ? 'reverse' : ''}`,
           }}
-          aria-hidden={copy === 1}
+          aria-hidden={copy !== 0}
         >
           {children}
         </motion.div>
       ))}
     </div>
-  )
+  );
 }
