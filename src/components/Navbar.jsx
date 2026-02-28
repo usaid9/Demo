@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Code2 } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -20,24 +21,27 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -64, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-slate-900/95 backdrop-blur shadow-lg' : 'bg-transparent'
+        scrolled
+          ? 'bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/[0.06]'
+          : ''
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2 text-white font-bold text-xl">
-          <Code2 className="text-violet-400" size={24} />
-          <span>Alex<span className="text-violet-400">Dev</span></span>
+      <nav className="w-full max-w-[1100px] mx-auto px-5 sm:px-8 lg:px-12 h-16 flex items-center justify-between">
+        <a href="#home" className="text-white font-semibold text-sm tracking-tight">
+          Usaid Ahmad
         </a>
 
-        {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-slate-300 hover:text-violet-400 transition-colors text-sm font-medium"
+                className="text-white/40 hover:text-white transition-colors duration-200 text-sm"
               >
                 {link.label}
               </a>
@@ -47,46 +51,52 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-colors"
+          className="hidden md:inline-flex items-center bg-white text-black text-xs font-semibold h-8 px-4 rounded-full hover:bg-white/90 transition-colors duration-200"
         >
-          Hire Me
+          Hire me
         </a>
 
-        {/* Mobile toggle */}
         <button
-          className="md:hidden text-white p-2"
+          className="md:hidden text-white/50"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={18} /> : <Menu size={18} />}
         </button>
       </nav>
 
-      {/* Mobile menu */}
-      {open && (
-        <div className="md:hidden bg-slate-900/98 border-t border-slate-700 px-6 py-4">
-          <ul className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="text-slate-300 hover:text-violet-400 transition-colors font-medium"
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a
-            href="#contact"
-            className="mt-4 inline-flex bg-violet-600 hover:bg-violet-500 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-colors"
-            onClick={() => setOpen(false)}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="md:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-t border-white/[0.06] overflow-hidden"
           >
-            Hire Me
-          </a>
-        </div>
-      )}
-    </header>
+            <div className="w-full max-w-[1100px] mx-auto px-5 sm:px-8 py-6">
+              <ul className="flex flex-col gap-4">
+                {navLinks.map((link, i) => (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.04, duration: 0.2 }}
+                  >
+                    <a
+                      href={link.href}
+                      className="block text-white/50 hover:text-white transition-colors text-sm py-1"
+                      onClick={() => setOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   )
 }
